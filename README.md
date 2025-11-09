@@ -12,30 +12,22 @@
 ## Projeto: Encontrar números gerados aleatoriamente utilizando o Algoritmo de Grover  
 
 ### Objetivo  
-Demonstrar, por meio do **Algoritmo de Grover**, como a computação quântica pode acelerar a busca de um número (ou senha) aleatório em comparação com uma busca clássica.
+Nosso projeto tem como objetivo utilizar o princípio do Algorítmo de Grover para encontrar, de forma mais rápida e precisa que um algorítmo clássico, um número gerado aleatoriamente utlizando o conceito de superposição de estados quânticos de um qubit.
 
 ---
 
 ## Conceitos Quânticos Utilizados  
 
-O **Algoritmo de Grover** é um algoritmo de busca quântica que reduz o número de tentativas necessárias para encontrar um item específico em um conjunto não ordenado.
-
-Etapas principais:
-1. **Superposição:** todos os estados possíveis são preparados com igual probabilidade.  
-2. **Oráculo:** marca o estado correto invertendo sua fase.  
-3. **Difusor:** amplifica a probabilidade do estado marcado.  
-4. **Medição:** colapsa o sistema para o resultado mais provável.
-
-Enquanto a busca clássica tem complexidade **O(N)**, a busca quântica tem complexidade **O(√N)**.
-
+1. **Interferência Quântica:** os qubits operam a partir do princípio da dualidade da onda-partícula. Graças a isso, utilizaremos a propriedade de onda dos qubits para fazer uma interferência de ondas.
+2. **Algoritmo de Grover:** é um algoritmo de busca quântica que reduz o número de tentativas necessárias para encontrar um item específico em um conjunto não ordenado.
 ---
 
 ##  Metodologia  
 
 O projeto foi dividido em duas abordagens:
 
-- **Busca Clássica:** o algoritmo percorre todas as combinações possíveis até encontrar a senha correta.  
 - **Busca Quântica (Grover):** usa o simulador `AerSimulator` do Qiskit para preparar o circuito, aplicar o oráculo e o difusor, e medir o resultado.
+- **Busca Clássica:** o algoritmo percorre todas as combinações possíveis até encontrar a senha correta.  
 
 Em ambos os casos, comparamos o número de tentativas e a probabilidade de sucesso.
 
@@ -45,7 +37,7 @@ Em ambos os casos, comparamos o número de tentativas e a probabilidade de suces
 
 - A busca clássica exige em média metade das combinações possíveis (\(N/2\)).  
 - O Algoritmo de Grover encontra o resultado com apenas cerca de \(\sqrt{N}\) iterações.  
-- Nos testes com 10 qubits (\(N=1024\)), o Grover obteve a senha correta com probabilidade superior a 90%.
+- Nos testes com 10 qubits (\(N=1024\)), o Grover obteve a senha correta com probabilidade superior a 90% com uma quantidade significativamente menor de de iterações quânticas quando comparada com as tentativas clássicas.
 
 Visualmente, os resultados podem ser observados no **histograma de medições** gerado pelo Qiskit.
 
@@ -53,15 +45,16 @@ Visualmente, os resultados podem ser observados no **histograma de medições** 
 
 ## Conclusões e Limitações  
 
-O projeto demonstra a eficiência dos algoritmos quânticos para tarefas de busca, ilustrando conceitos como **superposição**, **interferência** e **amplificação de amplitude**.
+O projeto demonstra a eficiência dos algoritmos quânticos para tarefas de busca, utiliazndo-se dos conceitos de **superposição**, **interferência**, uso da propriedade onda-partícula e **amplificação de amplitude**.
 
 **Limitações:**  
-- O tempo de simulação cresce com o número de qubits.  
-- Em hardware real, o ruído pode reduzir a precisão.  
+- O tempo de simulação cresce exponencialmente de acordo o número de qubits e a simulação do algoritmo quântico demora mais em computador clássico do que a pesquisa clássica.  
+- Em hardware clássico, o ruído pode reduzir a precisão.
+- O tamanho da simulação é limitado fisicamente à capacidade de memória do sistema
 
 **Melhorias futuras:**  
 - Implementar um sistema de senha quântica que aceite qualquer tipo de caractere, incluindo números, letras e símbolos especiais, ampliando o espaço de busca e tornando o experimento mais próximo de um cenário real de segurança digital.  
-- Ajustar o número de iterações conforme o tamanho do problema.  
+- Buscar o menor números de iterações e manter uma alta porcentagem de acerto
 
 ---
 
